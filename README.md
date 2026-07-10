@@ -1,50 +1,143 @@
-# SuperDiver
+# Xiaotian Fu
 
-SLAM & Computer Vision Engineer
+**SLAM / 计算机视觉算法工程师**
 
-8 years of experience in computer vision algorithm development and product
-delivery, with a focus on SLAM, multi-view geometry, RGB-D vision, industrial
-inspection, and embedded optimization.
+[English](./README_EN.md)
 
-## Current Focus
+## 目录
 
-- RGB-D SLAM and online 3D reconstruction
-- Multi-view geometry and camera pose processing
-- 3D Gaussian Splatting
-- Industrial computer vision and model deployment
+- [职业定位](#职业定位)
+- [能力分布](#能力分布)
+- [技术发展主线](#技术发展主线)
+- [工作方法与工程价值](#工作方法与工程价值)
+- [近期公开技术项目](#近期公开技术项目)
 
-## Selected Projects
+## 职业定位
 
-### [ORB2GS](https://github.com/SuperDiver/ORB2GS)
+本人有 8 年计算机视觉算法研发与工程经验，长期能力基础是传统视觉、机器学习、创新算法设计、嵌入式优化和产品工程化。技术实践沿着传统 2D 视觉、智能投影 2D/3D 算法，逐步发展到 SLAM 3D 系统；当前重点深入以 ORB-SLAM3 为代表的 VSLAM 与在线三维建图。
 
-An online RGB-D Gaussian mapping prototype that connects ORB-SLAM3 tracking
-with a PyTorch and gsplat mapping backend through ZeroMQ.
+职业经历中成果较为突出的方向是智能投影产品算法。本人是该方向的早期开创者和核心研发者，工作的技术深度主要体现在：使用目标检测和多视图几何方法创造新的产品能力，在复杂约束下完成算法设计、工程实现、效果优化、质量管理和量产迭代。
 
-- Publishes RGB-D keyframes, camera poses, and sparse map points from a
-  headless ORB-SLAM3 pipeline.
-- Performs Gaussian initialization, incremental optimization, replay,
-  visibility filtering, capacity control, and runtime monitoring.
-- Runs end to end on the TUM RGB-D `freiburg1/desk` sequence with live viser
-  visualization.
+在 SLAM 方向，已有 Cartographer 激光惯导 SLAM 的完整流程、系统工程和质量保障经验；当前通过 ORB-SLAM3 源码级实践继续向 VSLAM 核心流程与三维建图深化。机器学习方法贯穿早期和中期项目，深度学习实践主要集中于预研原型、方案验证和近期公开项目。
 
-### [PCB Defect Detector](https://github.com/SuperDiver/pcb-defect-detector)
+**当前重点实践：** [ORB2GS - VSLAM 与在线三维建图](https://github.com/SuperDiver/ORB2GS) ｜ [PCB Defect Detector - 深度学习检测能力验证](https://github.com/SuperDiver/pcb-defect-detector)
 
-A YOLOv8s-based detector for six common PCB surface defect categories, covering
-model training, evaluation, export, benchmarking, and an interactive demo.
+## 能力分布
 
-- Precision `0.977`, recall `0.987`, mAP50 `0.990`, and mAP50-95 `0.573` on
-  2,616 validation images.
-- PyTorch and ONNX Runtime end-to-end latency of `15.3 ms` and `14.0 ms` on an
-  RTX 4060 Laptop GPU.
+### 长期深度积累
 
-## Engineering Background
+- **创新视觉算法与产品化：** 坚持从问题本身和物理约束出发提出算法方案，并推进到实现、测试、优化、量产和持续迭代。
+- **传统视觉与机器学习：** 长期使用特征、几何、分割、检测、聚类、分类和时序方法解决实际问题，熟悉 OpenCV、HOG/SVM、DBSCAN、卡尔曼滤波、隐马尔可夫模型等技术。
+- **嵌入式与性能优化：** 在 NXP S32V、DSP 等平台进行过算法迁移、SIMD 优化和运行效率评估。
+- **过程质量管理：** 在智能投影、SLAM 和近期项目中持续实践研发过程控制、自动化验证、异常分析与反馈闭环。
 
-- Delivered computer vision algorithms for robotic vacuum SLAM, smart
-  projectors, driver monitoring, ADAS research, and industrial inspection.
-- Experienced in algorithm feasibility analysis, implementation, embedded
-  optimization, validation, production support, and cross-team collaboration.
+### SLAM 经验与当前重点
 
-## Technology
+- **Cartographer 激光惯导 SLAM：** 熟悉整体流程、主要模块及相关核心计算；实际成果集中在版本工程、质量系统、地图结果分析和部分计算加速。
+- **ORB-SLAM3 / VSLAM：** 已从框架使用进入源码修改、关键流程理解和端到端系统实现，熟悉特征法 VSLAM 中的跟踪、关键帧、位姿、地图点和局部建图数据流，是当前首要深化方向。
+- **3D 视觉拓展：** 结合 RGB-D、坐标变换、点云与 3D Gaussian Splatting，探索 SLAM 定位结果与在线三维建图的连接方式。
 
-`C++` `Python` `OpenCV` `PyTorch` `ORB-SLAM3` `Multi-view Geometry` `RGB-D`
-`ZeroMQ` `gsplat` `YOLOv8` `ONNX Runtime` `DSP/SIMD`
+## 技术发展主线
+
+### 2016.08 - 2018.02｜独立研发 ADAS 算法与嵌入式验证
+
+**比亚迪汽车工业有限公司 · 第十五事业部｜算法工程师**
+
+- 用约一年时间独立开展 NXP S32V 平台 ADAS 能力预研，自主完成 LDW 与 PCW 两个较复杂功能的调研、方案设计、算法实现和效能验证。
+- 综合使用特征提取、卡尔曼滤波、LSD/Hough 直线检测、DBSCAN 和 LeNet-5 等，形成原创算法框架；使用 SIMD 评估算法在嵌入式平台上的运行效率。
+- 参与 360 环视算法的旧平台剥离、新平台分析与迁移准备，开始接触二维视觉与空间几何问题。
+
+> **能力形成：** 建立了独立研究复杂算法、组合多类技术并完成嵌入式效能验证的基础。项目属于保密预研，公开内容聚焦方法与工程实现。
+
+---
+
+### 2018.03 - 2020.04｜扩展 2D 感知、多传感器与工程方案能力
+
+**深圳腾视科技有限公司｜算法工程师**
+
+- 面向近红外驾驶员监控图像，主力实现抽烟、打电话、疲劳、眼镜和安全带等 9 类功能的可行性分析、数据制造、算法实现、DSP 迁移、测试和维护。
+- 综合 HOG/SVM、连通域分析、隐马尔可夫模型和近红外图像处理完成产品算法；将传感器扩展到奥比中光结构光设备，独立利用 RGB-D 深度数据设计图像分割算法。
+- 演示产品参加第二十届高交会并促成双方合作；申请专利 4 项。
+
+> **产品结果：** 多项功能完成部署发货，其中 4 项随公司产品于 2019 年在全国率先通过交通运输部 115 号文件相关检测。
+
+**合肥泰禾光电科技股份有限公司北京分公司｜高级算法工程师**
+
+- 评估双目视觉在 AGV 叉车货叉定位中的可行性，完成算法实现及精度、计算效率评估。
+- 参与可见光与远红外双光谱监控、矿下煤岩识别和工业智能监控项目，完成实地调研、硬件与工程方案、深度学习方案、算法原型和效果验证。
+
+---
+
+### 2020.06 - 2022.03｜开创智能投影产品算法，形成 2D/3D 技术深度
+
+**深圳市火乐科技发展有限公司｜高级图像算法工程师**
+
+- 负责自动对屏、画面自适应、画面智能平整、数字缩放和环境光自适应等功能，从产品定义、可行性分析、算法设计到实现、测试、质量控制和量产支持。
+- 使用基础几何、多视图几何和目标检测类方法处理投影画面与真实空间的关系，持续解决精度、稳定性、环境适应性和产品约束问题。
+- 负责视觉算法实验室建设，参与自动化测试系统的工程方案和效果评估算法设计；申请专利 14 项，其中 8 项在任职期内获授权。
+
+> **行业影响：** 作为智能投影产品算法的早期开创者和核心研发者，相关功能随坚果 J10 量产，推动产品率先形成智能投影新品类并领先行业约半年；核心功能性能指标保持业界第一。
+
+> **技术独创性：** 画面智能平整功能截至 2026 年 6 月仍为业界唯一的同类量产功能，形成持续超过 5 年的产品差异化能力。
+
+---
+
+### 2022.09 - 2023.11｜SLAM 系统工程与质量保障
+
+**安克创新科技股份有限公司 · Eufy｜SLAM 算法工程师**
+
+- 围绕 Cartographer 激光惯导 SLAM 支持扫地机器人版本开发与交付，熟悉传感器输入、主要模块、地图结果和版本运行的整体流程。
+- 独立完成两个专项系统：SLAM 版本软件自测系统和用户地图自动化异常检测系统，用于版本回归和地图质量问题批量分析。
+- 完成针对 SLAM 部分计算的硬件加速小项目，并在过程中熟悉相关核心计算；工作范围以系统工程、质量保障和计算优化为主。
+- 跨团队支援 Nebula 投影产品功能异常定位与排查，在生产问题集中出现时快速建立问题全貌、推进定位与排故，支持系列产品正常生产。
+
+> **团队价值：** 在 SLAM 组通过自测系统、地图异常分析和计算加速补齐关键工程与质量环节；在 Nebula 团队承担跨团队问题处理和交付保障。
+
+---
+
+### 2024 - 至今｜独立系统研发，并重点拓展 VSLAM
+
+- 主导个人知识管理软件从 0 到 1 的产品设计与核心开发，完成需求分析、架构设计、技术选型和前后端实现；基于 LLM、知识图谱、ReAct 和 LangGraph 设计 Agent。
+- 继续沿 2D 视觉 → 投影 2D/3D → SLAM 3D 的路线深入，当前重点学习和实践以 ORB-SLAM3 为代表的特征法 VSLAM。
+
+---
+
+## 工作方法与工程价值
+
+### 持续创新
+
+- **算法级创新：** 自研连通域检测算法、自研车道线检测算子，多约束下任意凸四边形最大内接矩形的解析解算法等。
+- **系统与方案创新：** 独立设计 ADAS 算法框架、自研 RGB-D 分割方案、开创智能投影产品功能、独创画面平整算法、建立 SLAM 质量工具，并连接 ORB-SLAM3 与 Gaussian 建图管道等。
+- **成果沉淀：** 职业经历中累计申请专利 18 项，其中至少 8 项在任职期内获授权。
+
+### 过程质量管理
+
+本人曾接受过程质量管理相关培训，并在实际产品研发中逐步形成、持续验证和完善这套方法。
+
+- **智能投影阶段：** 在自动对屏、画面平整等功能的两版迭代中，同时参与产品定义、可行性分析、算法设计、效果评估、质量控制和量产支持；负责视觉算法实验室建设，并参与自动化测试系统和效果评估算法设计，为核心指标保持业界第一和后续全系列稳定搭载提供质量基础。
+- **SLAM 阶段：** 独立完成 SLAM 版本软件自测系统和用户地图自动化异常检测系统，将部分版本回归和地图质量检查转化为可重复、可批量执行的工程流程，为团队补充发布前验证和问题发现能力。
+- **近期项目：** 在 ORB2GS 中建立模块测试、ZMQ 协议约束、运行状态监控和端到端验证；在 PCB 项目中保留训练、验证和推理评测结果，使项目结论能够由数据和脚本复现。
+
+这些实践逐步形成了本人对过程质量的认识：算法质量不仅取决于最终效果，还取决于目标是否明确、评价方法是否可靠、研发过程是否可观测、异常是否能够定位，以及结果能否稳定复现和持续交付。
+
+### 技术托底与交付保障
+
+技术托底需要在职责边界之外快速理解系统、识别关键风险、补齐缺失工具、协调相关人员并推动问题闭环。例如在安克期间，本人通过质量系统补充工程与质量能力，在 Nebula 生产异常期间承担跨团队定位与排故，保障系列产品正常生产。这种能力建立在技术广度、系统判断、过程质量意识和结果责任感之上。
+
+## 近期公开技术项目
+
+### [ORB2GS：ORB-SLAM3 + 3D Gaussian 在线建图](https://github.com/SuperDiver/ORB2GS)
+
+**定位：VSLAM 与三维建图方向的重点能力证明。**
+
+- 面向 RGB-D 场景构建在线 Gaussian 建图原型，打通 ORB-SLAM3 定位与 3D Gaussian Splatting 建图链路。
+- 修改 ORB-SLAM3 的 Tracking、Local Mapping 等关键流程以发布图像、深度、位姿和地图点；在 Python 端实现关键帧配对、RGB-D 反投影、Gaussian 初始化、增量训练、历史回放、视锥裁剪和容量控制。
+- 在 TUM RGB-D `freiburg1/desk` 上完成端到端联调，实现 ORB-SLAM3 跟踪、数据在线传输、Gaussian 场景持续增长、模型快照和 viser 状态可视化。
+
+### [PCB Defect Detector：PCB 缺陷检测与推理评测](https://github.com/SuperDiver/pcb-defect-detector)
+
+**定位：深度学习检测基础与完整项目流程的能力证明。**
+
+- 基于 YOLOv8s 完成 6 类 PCB 缺陷检测的模型训练、验证、PyTorch/ONNX 导出、推理评测和 Gradio 演示。
+- 使用 10,710 张图像训练；在 2,616 张验证图像、5,436 个实例上取得 Precision `0.977`、Recall `0.987`、mAP50 `0.990`、mAP50-95 `0.573`。
+- RTX 4060 Laptop GPU 下 PyTorch/ONNX 端到端延迟为 `15.3/14.0 ms`。
